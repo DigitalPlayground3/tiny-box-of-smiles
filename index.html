@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>A Little Happiness Box for Simran 💗</title>
+  <meta name="description" content="A little happiness box, made with love.">
+  <meta name="theme-color" content="#FFE3EC">
+  <!-- Keeps this private gift out of search engines -->
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/fraunces-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/varela-round-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-view="welcome">
+
+  <!-- Tiny icon sprite used by floating decorations and particle bursts -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 21C4.5 15.5 2 11 3.8 7.5 5.6 4.2 9.8 4.6 12 8c2.2-3.4 6.4-3.8 8.2-.5C22 11 19.5 15.5 12 21Z"/></symbol>
+      <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 1.5c.9 5.6 3 8.6 10.5 10.5-7.5 1.9-9.6 4.9-10.5 10.5C11.1 16.9 9 13.900 1.5 12 9 10.100 11.100 7.100 12 1.500Z"/></symbol>
+      <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.5l2.800 6 6.500.8-4.800 4.500 1.300 6.500L12 17l-5.800 3.300 1.300-6.500L2.700 9.300l6.500-.8L12 2.500Z" stroke-linejoin="round"/></symbol>
+      <symbol id="i-petal" viewBox="0 0 24 24"><path d="M12 1C18 7 18 17 12 23 6 17 6 7 12 1Z"/></symbol>
+      <symbol id="i-cloud" viewBox="0 0 120 64"><circle cx="38" cy="38" r="18"/><circle cx="62" cy="28" r="23"/><circle cx="87" cy="38" r="17"/><rect x="24" y="36" width="78" height="22" rx="11"/></symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    </defs>
+  </svg>
+
+  <div class="sky" id="sky" aria-hidden="true"></div>
+  <div class="fx" id="fx" aria-hidden="true"></div>
+
+  <noscript>
+    <p class="noscript">This little box needs JavaScript to open. Please turn it on and refresh. 💗</p>
+  </noscript>
+
+  <main id="app">
+
+    <!-- ============ 1. WELCOME ============ -->
+    <section class="view is-active" id="view-welcome" data-view="welcome" aria-labelledby="welcome-title">
+      <div class="welcome">
+        <h1 id="welcome-title" tabindex="-1">Hey Simran! 💗</h1>
+        <p class="lead">Psst... your sis has secretly made you a tiny happiness box!</p>
+        <p class="hand-note">Nothing special to celebrate. Just because you're special.</p>
+
+        <button class="giftbox-btn" id="giftbox" type="button" aria-label="Open the gift box">
+          <svg class="giftbox" viewBox="0 0 220 230" aria-hidden="true" focusable="false">
+            <ellipse cx="110" cy="214" rx="66" ry="8" fill="#5B3A56" opacity=".12"/>
+            <ellipse class="gb-glow" cx="110" cy="112" rx="58" ry="26" fill="#FFF0A8"/>
+            <g stroke="#7C5576" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round">
+              <rect x="42" y="104" width="136" height="104" rx="14" fill="#F9B6CE"/>
+              <circle cx="66" cy="132" r="4" fill="#fff" stroke="none" opacity=".85"/>
+              <circle cx="72" cy="170" r="4" fill="#fff" stroke="none" opacity=".85"/>
+              <circle cx="154" cy="138" r="4" fill="#fff" stroke="none" opacity=".85"/>
+              <circle cx="148" cy="182" r="4" fill="#fff" stroke="none" opacity=".85"/>
+              <rect x="98" y="104" width="24" height="104" fill="#E4D8FB"/>
+            </g>
+            <g class="gb-lid" stroke="#7C5576" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round">
+              <rect x="30" y="76" width="160" height="36" rx="12" fill="#FBC9DB"/>
+              <rect x="98" y="76" width="24" height="36" fill="#E4D8FB"/>
+              <path d="M110 76C96 50 66 54 72 71c4 11 26 7 38 5Z" fill="#E4D8FB"/>
+              <path d="M110 76C124 50 154 54 148 71c-4 11-26 7-38 5Z" fill="#E4D8FB"/>
+              <circle cx="110" cy="75" r="9" fill="#C9B6F2"/>
+            </g>
+          </svg>
+        </button>
+
+        <button class="btn" id="open-btn" type="button">Open Your Surprise 🎀</button>
+      </div>
+    </section>
+
+    <!-- ============ 2. THE MAGICAL REVEAL ============ -->
+    <section class="view" id="view-box" data-view="box" hidden aria-labelledby="box-title">
+      <header class="reveal-head">
+        <h2 id="box-title" tabindex="-1">Yay, Simran! 🥹</h2>
+        <p class="lead">You've unlocked a little happiness!</p>
+        <p class="sub">Inside this little box are a few reminders, hugs and smiles, specially picked for you.</p>
+      </header>
+
+      <ul class="cards">
+        <li>
+          <button class="card card--love" type="button" data-gift="love" aria-label="Open A Little Love">
+            <span class="badge" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-heart"/></svg></span>
+            <span class="card-art" data-tpl="heart"></span>
+            <span class="card-title">A Little Love 💗</span>
+            <span class="card-cap">Just for you</span>
+          </button>
+        </li>
+        <li>
+          <button class="card card--hug" type="button" data-gift="hug" aria-label="Open A Virtual Hug">
+            <span class="badge" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-heart"/></svg></span>
+            <span class="card-art" data-tpl="bear"></span>
+            <span class="card-title">A Virtual Hug 🤗</span>
+            <span class="card-cap">Come here</span>
+          </button>
+        </li>
+        <li>
+          <button class="card card--reminder" type="button" data-gift="reminder" aria-label="Open A Little Reminder">
+            <span class="badge" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-heart"/></svg></span>
+            <span class="card-art" data-tpl="flower"></span>
+            <span class="card-title">A Little Reminder 🌸</span>
+            <span class="card-cap">Never forget</span>
+          </button>
+        </li>
+        <li>
+          <button class="card card--sunshine" type="button" data-gift="sunshine" aria-label="Open A Little Sunshine">
+            <span class="badge" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-heart"/></svg></span>
+            <span class="card-art" data-tpl="sun"></span>
+            <span class="card-title">A Little Sunshine ☀️</span>
+            <span class="card-cap">For your day</span>
+          </button>
+        </li>
+      </ul>
+
+      <div class="last-surprise">
+        <button class="btn btn--letter" id="letter-btn" type="button" data-ready="false">One Last Surprise 💌</button>
+        <p class="all-done" id="all-done" hidden>You opened every gift, Simran. One more is waiting.</p>
+      </div>
+    </section>
+
+    <!-- ============ GIFT 1: A LITTLE LOVE ============ -->
+    <section class="view gift gift--love" id="view-love" data-view="love" hidden aria-labelledby="love-title">
+      <button class="back" type="button" data-back><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chevron"/></svg>Back to my gifts</button>
+      <header class="gift-head">
+        <h2 id="love-title" tabindex="-1">Just a little reminder...</h2>
+        <p class="gift-sub">This one's for you, Simran.</p>
+      </header>
+      <div class="stage"><div class="art art-heart" id="love-art" data-tpl="heart"></div></div>
+      <div class="msg-card" id="love-card"><p class="msg-text" id="love-text" aria-live="polite"></p></div>
+      <button class="btn" id="love-btn" type="button">Another Little Love 💗</button>
+    </section>
+
+    <!-- ============ GIFT 2: A VIRTUAL HUG ============ -->
+    <section class="view gift gift--hug" id="view-hug" data-view="hug" hidden aria-labelledby="hug-title">
+      <button class="back" type="button" data-back><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chevron"/></svg>Back to my gifts</button>
+      <header class="gift-head">
+        <h2 id="hug-title" tabindex="-1">Come here, Simran. You deserve a hug!</h2>
+        <p class="gift-sub">Sending you a virtual hug!</p>
+      </header>
+      <div class="stage">
+        <button class="art art-bear" id="hug-art" type="button" aria-label="Tap the teddy for a hug"><span class="slot" data-tpl="bear"></span></button>
+      </div>
+      <div class="msg-card" id="hug-card"><p class="msg-text" id="hug-text" aria-live="polite"></p></div>
+      <button class="btn" id="hug-btn" type="button">I Need Another Hug 🤗</button>
+    </section>
+
+    <!-- ============ GIFT 3: A LITTLE REMINDER ============ -->
+    <section class="view gift gift--reminder" id="view-reminder" data-view="reminder" hidden aria-labelledby="reminder-title">
+      <button class="back" type="button" data-back><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chevron"/></svg>Back to my gifts</button>
+      <header class="gift-head">
+        <h2 id="reminder-title" tabindex="-1">Things you should never forget...</h2>
+        <p class="gift-sub">Your sis is rooting for you.</p>
+      </header>
+      <div class="stage">
+        <div class="flowers" id="reminder-art" aria-hidden="true">
+          <span class="flower-slot f-lav" style="--d:.25s" data-tpl="flower"></span>
+          <span class="flower-slot f-pink tall" style="--d:0s" data-tpl="flower"></span>
+          <span class="flower-slot f-peach" style="--d:.5s" data-tpl="flower"></span>
+        </div>
+      </div>
+      <div class="msg-card" id="reminder-card"><p class="msg-text" id="reminder-text" aria-live="polite"></p></div>
+      <button class="btn" id="reminder-btn" type="button">Remind Me Again 🌸</button>
+    </section>
+
+    <!-- ============ GIFT 4: A LITTLE SUNSHINE ============ -->
+    <section class="view gift gift--sunshine" id="view-sunshine" data-view="sunshine" hidden aria-labelledby="sunshine-title">
+      <button class="back" type="button" data-back><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chevron"/></svg>Back to my gifts</button>
+      <header class="gift-head">
+        <h2 id="sunshine-title" tabindex="-1">A little sunshine for your day!</h2>
+        <p class="gift-sub">Just a little sunshine from your sis.</p>
+      </header>
+      <div class="stage"><div class="art art-sun" id="sunshine-art" data-tpl="sun"></div></div>
+      <div class="msg-card" id="sunshine-card"><p class="msg-text" id="sunshine-text" aria-live="polite"></p></div>
+      <button class="btn" id="sunshine-btn" type="button">Send Me More Sunshine ☀️</button>
+    </section>
+
+    <!-- ============ 6. FINAL SURPRISE: THE LETTER ============ -->
+    <section class="view view--letter" id="view-letter" data-view="letter" hidden aria-label="A letter from your sis">
+      <div class="env-wrap" id="env-wrap">
+        <button class="env-btn" id="env-btn" type="button" aria-label="Open the envelope">
+          <svg class="envelope" id="envelope" viewBox="0 -80 320 310" aria-hidden="true" focusable="false">
+            <g stroke="#7C5576" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round">
+              <ellipse cx="160" cy="226" rx="120" ry="7" fill="#5B3A56" opacity=".1" stroke="none"/>
+              <rect x="12" y="40" width="296" height="180" rx="14" fill="#FFD9C2"/>
+              <!-- inside of the opened flap (sits behind the paper) -->
+              <path class="flap-open" d="M14 56Q14 40 30 40H290Q306 40 306 56L160 152Z" fill="#F7A2C0"/>
+              <!-- the letter paper peeking out -->
+              <g class="env-paper">
+                <rect x="38" y="52" width="244" height="156" rx="8" fill="#FFFDF8"/>
+                <path d="M62 82h130M62 104h160M62 126h110M62 148h140" stroke="#C9B6F2" stroke-width="3" fill="none"/>
+                <use href="#i-heart" x="216" y="66" width="34" height="34" fill="#F58FB4" stroke="none"/>
+              </g>
+              <!-- front pocket -->
+              <path d="M14 218V58L160 152 306 58V218Z" fill="#FFE8D8"/>
+              <path d="M14 218L128 128M306 218L192 128" fill="none"/>
+              <!-- closed flap with wax seal -->
+              <g class="flap-closed">
+                <path d="M14 56Q14 40 30 40H290Q306 40 306 56L160 152Z" fill="#FFC2D6"/>
+                <circle cx="160" cy="130" r="21" fill="#F58FB4"/>
+                <use href="#i-heart" x="148" y="118" width="24" height="24" fill="#FFF6EC" stroke="none"/>
+              </g>
+            </g>
+          </svg>
+        </button>
+        <p class="env-hint">Tap the envelope</p>
+      </div>
+
+      <article class="letter" id="letter" hidden>
+        <p class="l-greet" data-words>Dear Simran, ❤️</p>
+        <p data-words>I may not always have the perfect words, but I hope you never forget how much you mean to me.</p>
+        <p data-words>I hope you always find reasons to smile, strength on difficult days, and happiness in the smallest things.</p>
+        <p data-words>Whenever life feels a little too much, remember to be kind to yourself. You deserve all the love, care and beautiful things in this world.</p>
+        <p data-words>This little surprise is just a tiny reminder of how much you're loved.</p>
+        <p data-words>No special occasion. No particular reason. Just wanted to make you smile.</p>
+        <p class="l-with" data-words>With all my love,</p>
+        <p class="l-sig" id="sig">Your Sis 💗</p>
+      </article>
+
+      <div class="closing" id="closing" hidden>
+        <div class="closing-bear" data-tpl="bear"></div>
+        <p class="made-with">Made with endless love, just for Simran. 💗<br>— Your Sis</p>
+        <div class="closing-actions">
+          <button class="btn btn--soft" id="reread-btn" type="button">Read it again 💌</button>
+          <button class="btn" type="button" data-back>Back to my gifts</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Teddy bear that waves or hugs. Used in the corner, the hug gift and the finale -->
+  <button class="buddy" id="buddy" type="button" aria-label="Say hi to the teddy bear" hidden><span class="slot" data-tpl="bear"></span></button>
+
+  <!-- ===== Illustration templates (cloned by script.js) ===== -->
+  <template id="tpl-bear">
+    <svg class="bear pose-idle" viewBox="0 0 200 230" role="img" aria-label="A cute teddy bear" focusable="false">
+      <g class="bear-all" stroke="#7C5576" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round">
+        <ellipse cx="100" cy="224" rx="58" ry="6" fill="#5B3A56" opacity=".1" stroke="none"/>
+        <circle cx="58" cy="54" r="21" fill="#F6CBA7"/><circle cx="58" cy="55" r="10" fill="#FFB8CE" stroke="none"/>
+        <circle cx="142" cy="54" r="21" fill="#F6CBA7"/><circle cx="142" cy="55" r="10" fill="#FFB8CE" stroke="none"/>
+        <ellipse cx="70" cy="206" rx="23" ry="15" fill="#F6CBA7"/><ellipse cx="70" cy="208" rx="10" ry="7" fill="#FFB8CE" stroke="none"/>
+        <ellipse cx="130" cy="206" rx="23" ry="15" fill="#F6CBA7"/><ellipse cx="130" cy="208" rx="10" ry="7" fill="#FFB8CE" stroke="none"/>
+        <ellipse cx="100" cy="162" rx="48" ry="48" fill="#F6CBA7"/>
+        <ellipse cx="100" cy="170" rx="28" ry="30" fill="#FFF1E2" stroke="none"/>
+        <rect class="arm arm-l" x="51" y="128" width="26" height="58" rx="13" fill="#F6CBA7"/>
+        <rect class="arm arm-r" x="123" y="128" width="26" height="58" rx="13" fill="#F6CBA7"/>
+        <ellipse cx="100" cy="90" rx="54" ry="46" fill="#F6CBA7"/>
+        <ellipse cx="100" cy="106" rx="23" ry="16" fill="#FFF1E2"/>
+        <ellipse cx="100" cy="98" rx="7.500" ry="5.500" fill="#7C5576"/>
+        <path d="M100 103.500v5M100 108.500c-4 5-10 4-12 0M100 108.500c4 5 10 4 12 0" fill="none" stroke-width="2.600"/>
+        <g class="eyes" fill="#4A2745" stroke="none">
+          <circle cx="80" cy="84" r="5"/><circle cx="120" cy="84" r="5"/>
+          <circle cx="78.400" cy="82.400" r="1.600" fill="#fff"/><circle cx="118.400" cy="82.400" r="1.600" fill="#fff"/>
+        </g>
+        <ellipse class="cheek" cx="66" cy="102" rx="9" ry="6" fill="#FF8FB5" opacity=".55" stroke="none"/>
+        <ellipse class="cheek" cx="134" cy="102" rx="9" ry="6" fill="#FF8FB5" opacity=".55" stroke="none"/>
+        <path d="M100 138L77 126V150Z" fill="#F58FB4"/><path d="M100 138L123 126V150Z" fill="#F58FB4"/>
+        <circle cx="100" cy="138" r="6.500" fill="#FFB8CE"/>
+      </g>
+    </svg>
+  </template>
+
+  <template id="tpl-heart">
+    <svg class="heart-art" viewBox="0 0 160 150" role="img" aria-label="A smiling heart" focusable="false">
+      <g class="heart-body" stroke="#7C5576" stroke-width="3.500" stroke-linejoin="round" stroke-linecap="round">
+        <path d="M80 138C22 98 10 58 34 34 52 16 72 24 80 44c8-20 28-28 46-10 24 24 12 64-46 104Z" fill="#F7A2C0"/>
+        <path d="M44 52c3-8 11-12 19-9" fill="none" stroke="#fff" stroke-width="5" opacity=".85"/>
+        <path d="M58 82q6-8 12 0M90 82q6-8 12 0M74 94q6 7 12 0" fill="none" stroke-width="3"/>
+        <ellipse cx="52" cy="92" rx="8" ry="5" fill="#FF7FA8" opacity=".6" stroke="none"/>
+        <ellipse cx="108" cy="92" rx="8" ry="5" fill="#FF7FA8" opacity=".6" stroke="none"/>
+      </g>
+    </svg>
+  </template>
+
+  <template id="tpl-flower">
+    <svg class="flower" viewBox="0 0 100 170" role="img" aria-label="A smiling flower" focusable="false">
+      <g stroke="#7C5576" stroke-width="3.200" stroke-linejoin="round" stroke-linecap="round">
+        <path class="f-stem" d="M50 168C46 130 54 100 50 66" pathLength="1" fill="none"/>
+        <g class="f-leaf f-leaf-l"><path d="M49 132C30 132 20 120 18 106 34 106 46 114 49 132Z" fill="#BDE8CB"/></g>
+        <g class="f-leaf f-leaf-r"><path d="M51 112C70 112 80 100 82 86 66 86 54 94 51 112Z" fill="#BDE8CB"/></g>
+        <g class="f-head">
+          <g transform="translate(50 56)">
+            <g class="petals"></g>
+            <circle r="12" fill="#FFE08A"/>
+            <circle cx="-4.500" cy="-1" r="1.600" fill="#4A2745" stroke="none"/><circle cx="4.500" cy="-1" r="1.600" fill="#4A2745" stroke="none"/>
+            <path d="M-4 3.500q4 4 8 0" fill="none" stroke-width="2"/>
+          </g>
+        </g>
+      </g>
+    </svg>
+  </template>
+
+  <template id="tpl-sun">
+    <svg class="sun-art" viewBox="0 0 220 220" role="img" aria-label="A happy little sun" focusable="false">
+      <g stroke="#7C5576" stroke-width="3.200" stroke-linejoin="round" stroke-linecap="round">
+        <g class="sun-rays" fill="#FFCF7A"></g>
+        <circle cx="110" cy="110" r="52" fill="#FFE08A"/>
+        <path d="M84 106q8-10 16 0M120 106q8-10 16 0M97 126q13 13 26 0" fill="none" stroke-width="3.400"/>
+        <ellipse cx="80" cy="122" rx="10" ry="6.500" fill="#FF8FB5" opacity=".6" stroke="none"/>
+        <ellipse cx="140" cy="122" rx="10" ry="6.500" fill="#FF8FB5" opacity=".6" stroke="none"/>
+      </g>
+    </svg>
+  </template>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
